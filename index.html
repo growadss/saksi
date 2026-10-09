@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shaksi Tips | Cricket Match Analytics & Insights</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1374285067899650');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1374285067899650&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --bg-dark: #07150e;
+      --card-bg: rgba(13, 35, 24, 0.85);
+      --pitch-green: #00e676;
+      --gold: #ffc400;
+      --text-white: #ffffff;
+      --text-muted: #9eb8a8;
+      --border-color: rgba(0, 230, 118, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(0, 230, 118, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 90%, rgba(255, 196, 0, 0.08) 0%, transparent 50%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 12px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 410px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 22px 18px 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 230, 118, 0.12);
+      backdrop-filter: blur(14px);
+      text-align: center;
+      position: relative;
+    }
+
+    /* Live Badge */
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 196, 0, 0.12);
+      border: 1px solid rgba(255, 196, 0, 0.4);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background-color: #ff3d00;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ff3d00;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* Round Logo Container with Stadium Gradient Ring */
+    .avatar-wrapper {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      padding: 3.5px;
+      background: linear-gradient(135deg, #00e676 0%, #ffc400 50%, #00b0ff 100%);
+      box-shadow: 0 0 22px rgba(0, 230, 118, 0.45);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #081d14;
+    }
+
+    /* Verified Badge */
+    .channel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.4);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--pitch-green);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .verified-icon {
+      width: 13px;
+      height: 13px;
+      fill: var(--pitch-green);
+    }
+
+    /* Heading Section */
+    h1 {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      background: linear-gradient(180deg, #ffffff 40%, #b2dfdb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    /* Cricket Match Insights Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: left;
+    }
+
+    .metric-title {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .metric-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    /* Key Insights */
+    .features-list {
+      background: rgba(0, 230, 118, 0.05);
+      border: 1px dashed rgba(0, 230, 118, 0.3);
+      border-radius: 14px;
+      padding: 10px 14px;
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #e0f2f1;
+      margin-bottom: 6px;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-icon {
+      color: var(--pitch-green);
+      font-size: 13px;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #00e676 0%, #00b0ff 100%);
+      color: #03140c;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 14px 18px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 230, 118, 0.35);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    .telegram-icon {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+
+    /* Meta-Safe Disclaimer */
+    .disclaimer {
+      margin-top: 12px;
+      font-size: 9.5px;
+      color: #5d7568;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Live Tag -->
+    <div class="brand-tag">
+      <span class="dot"></span> Live Match Analytics
+    </div>
+
+    <!-- Round Logo / Avatar -->
+    <div class="avatar-wrapper">
+      <img src="logo.jpg" alt="Shaksi Tips" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=240&q=80';">
+    </div>
+
+    <!-- Channel Badge -->
+    <div class="channel-badge">
+      <svg class="verified-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Shaksi Tips Official
+    </div>
+
+    <!-- Heading -->
+    <h1>Cricket Match Data & Pitch Intelligence</h1>
+    <p class="sub-title">Shaksi Tips ke saath payein accurate pitch reports, ground stats aur playing 11 ke data-driven updates.</p>
+
+    <!-- Match Analytics Highlights -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-title">📊 Pitch Reports</div>
+        <div class="metric-value">Detailed Weather & Track Data</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">⚡ Session Trends</div>
+        <div class="metric-value">Over-by-Over Score Trends</div>
+      </div>
+    </div>
+
+    <!-- Key Insights -->
+    <div class="features-list">
+      <div class="feature-item">
+        <span class="check-icon">✓</span> Match shuru hone se pehle Toss & Playing 11 updates
+      </div>
+      <div class="feature-item">
+        <span class="check-icon">✓</span> Head-to-head records & deep statistical analysis
+      </div>
+      <div class="feature-item">
+        <span class="check-icon">✓</span> 100% Free daily sports analytics community
+      </div>
+    </div>
+
+    <!-- CTA Button with Event Tracking -->
+    <a href="https://t.me/+LPupDg0Jmk81N2Nl" 
+       onclick="fbq('track', 'Contact');" 
+       class="cta-btn" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <svg class="telegram-icon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+      </svg>
+      Join Shaksi Tips Telegram
+    </a>
+
+    <!-- Meta-Safe Disclaimer -->
+    <div class="disclaimer">
+      Yeh channel sirf educational aur statistical cricket data analysis ke liye hai. Hum kisi bhi tarah ke financial ya betting claims ko promote nahi karte.
+    </div>
+  </div>
+
+</body>
+</html>
